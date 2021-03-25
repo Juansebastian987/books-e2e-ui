@@ -5,20 +5,21 @@ describe('When the user wants to register a book', () => {
      */
 	before(()=>{
 	  cy.visit("https://integracion-continua-front.herokuapp.com")
-      cy.get('button.table-button.ant-btn.ant-btn-primary').click();
-	  cy.wait(500);
-	  cy.get('#name').type("Curso QA");
-	  cy.get('#author').type("Juan Sebastian Cardona");
+      cy.get(':nth-child(1) > :nth-child(4) > .ant-btn').click();
+	  cy.wait(500); 
+      cy.get('#name').clear();
+      cy.get('#author').clear();
+	  cy.get('#name').type(" ");
+	  cy.get('#author').type(" ");
       cy.get('button.ant-btn.ant-btn-primary.ng-star-inserted').click();
 
-	})
+	}) 
 
-	
 	/**
      * Assert
      */
 	it("Then the book should be listed with the right name and author" ,() =>{
-		cy.get('table').contains('td', "Curso QA").should('be.visible');
+		cy.get('table').contains('td', "Update Book").should('not.exist');
 	});
 
 });
