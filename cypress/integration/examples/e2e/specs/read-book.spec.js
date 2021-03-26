@@ -10,7 +10,7 @@ describe('When the user wants to register a book', () => {
 	before(()=>{
 	  cy.visit("https://integracion-continua-front.herokuapp.com")
       cy.get('button.table-button.ant-btn.ant-btn-primary').click();
-	  cy.wait(500);
+	  cy.wait(200);
 	  cy.get('#name').type(name);
 	  cy.get('#author').type(author);
       cy.get('button.ant-btn.ant-btn-primary.ng-star-inserted').click();
