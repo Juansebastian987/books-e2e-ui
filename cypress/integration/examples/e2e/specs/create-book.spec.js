@@ -1,13 +1,17 @@
 describe('When the user wants to register a book', () => {
-
 	/**
-     * Arrange y Act
+     * Arrange
+     */
+	 var name = "Nuevo Curso QA";
+	
+	/**
+     * Act
      */
 	before(()=>{
 	  cy.visit("https://integracion-continua-front.herokuapp.com")
       cy.get('button.table-button.ant-btn.ant-btn-primary').click();
 	  cy.wait(500);
-	  cy.get('#name').type("Curso QA");
+	  cy.get('#name').type(name);
 	  cy.get('#author').type("Juan Sebastian Cardona");
       cy.get('button.ant-btn.ant-btn-primary.ng-star-inserted').click();
 
@@ -18,7 +22,7 @@ describe('When the user wants to register a book', () => {
      * Assert
      */
 	it("Then the book should be listed with the right name and author" ,() =>{
-		cy.get('table').contains('td', "Curso QA").should('be.visible');
+		cy.get('table').contains('td', name).should('be.visible');
 	});
 
 });
